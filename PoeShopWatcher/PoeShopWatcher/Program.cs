@@ -29,11 +29,15 @@ namespace PoeShopWatcher
                     responseFromServer = reader.ReadToEnd();
                 }
             }
-           
-            
-            Request req = JsonConvert.DeserializeObject<Request>(responseFromServer);
+
+            var data = Request.FromJson(responseFromServer);
 
             Console.ReadLine();
         }
+    }
+
+    public static class Serialize
+    {
+        public static string ToJson(this Request self) => JsonConvert.SerializeObject(self, Converter.Settings);
     }
 }

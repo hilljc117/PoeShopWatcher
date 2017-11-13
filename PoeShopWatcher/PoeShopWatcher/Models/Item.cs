@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace PoeShopWatcher.Models
 {
-    class Item
+    public class Item
     {
         [JsonProperty("additionalProperties")]
         public AdditionalProperties[] AdditionalProperties { get; set; }

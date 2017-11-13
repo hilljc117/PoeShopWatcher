@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace PoeShopWatcher.Models
 {
-    class Socket
+    public class Socket
     {
         [JsonProperty("attr")]
         public string Attr { get; set; }

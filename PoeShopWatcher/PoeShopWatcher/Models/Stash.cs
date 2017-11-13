@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace PoeShopWatcher.Models
 {
-    class Stash
+    public class Stash
     {
         [JsonProperty("accountName")]
         public object AccountName { get; set; }

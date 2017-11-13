@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace PoeShopWatcher.Models
 {
-    class AdditionalProperties
+    public class AdditionalProperties
     {
         [JsonProperty("displayMode")]
         public long DisplayMode { get; set; }
@@ -22,6 +22,6 @@ namespace PoeShopWatcher.Models
         public long? Type { get; set; }
 
         [JsonProperty("values")]
-        public Values[] Values { get; set; }
+        public Values[][] Values { get; set; }
     }
 }

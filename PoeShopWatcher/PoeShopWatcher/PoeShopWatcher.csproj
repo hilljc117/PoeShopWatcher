@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AdditionalProperties.cs" />
+    <Compile Include="Models\Converter.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Socket.cs" />

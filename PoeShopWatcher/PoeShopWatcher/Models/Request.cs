@@ -7,12 +7,14 @@ using Newtonsoft.Json;
 
 namespace PoeShopWatcher.Models
 {
-    class Request
+    public class Request
     {
         [JsonProperty("next_change_id")]
         public string NextChangeId { get; set; }
 
         [JsonProperty("stashes")]
         public Stash[] Stashes { get; set; }
+
+        public static Request FromJson(string json) => JsonConvert.DeserializeObject<Request>(json, Converter.Settings);
     }
 }
