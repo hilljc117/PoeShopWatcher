@@ -15,22 +15,23 @@ namespace PoeShopWatcher
         public static void Run()
         {
             string URL = "http://api.pathofexile.com/public-stash-tabs";
+            Dictionary<string, Stash> stashes = new Dictionary<string, Stash>();
 
 
             string apiResponse = RetrieveStashes(URL);
             var data = Response.FromJson(apiResponse);
-            var stashes = UpdateStashes(data.Stashes);
+            stashes = UpdateStashes(stashes, data.Stashes);
 
             URL += @"/?id={0}";
 
-            for(int i = 0; i < 10; i++)
+            while(true)
             {
                 Thread.Sleep(1000);
                 apiResponse = RetrieveStashes(String.Format(URL, data.NextChangeId));
                 data = Response.FromJson(apiResponse);
-                stashes = UpdateStashes(data.Stashes);
+                stashes = UpdateStashes(stashes, data.Stashes);
+                Console.WriteLine("Stashes: " + stashes.Count);
             }
-            Console.ReadLine();
         }
 
         private static string RetrieveStashes(string url)
@@ -54,10 +55,8 @@ namespace PoeShopWatcher
             return responseFromServer;
         }
 
-        private static Dictionary<string, Stash> UpdateStashes(Stash[] stashes)
+        private static Dictionary<string, Stash> UpdateStashes(Dictionary<string, Stash> dict, Stash[] stashes)
         {
-            Dictionary<string, Stash> dict = new Dictionary<string, Stash>();
-
             foreach(Stash stash in stashes)
             {
                 dict.Remove(stash.Id);
