@@ -14,30 +14,27 @@ namespace PoeShopWatcher
     {
         static void Main(string[] args)
         {
-            string responseFromServer;
+            string responseFromServer = "";
             Stream dataStream;
 
 
-            // Create a request for the URL.   
             WebRequest request = WebRequest.Create("http://api.pathofexile.com/public-stash-tabs");
-            
-            using (WebResponse response = request.GetResponse()) { 
-                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-                dataStream = response.GetResponseStream();
-                using (StreamReader reader = new StreamReader(dataStream))
+
+            using (WebResponse response = request.GetResponse())
+            {
+                if (((HttpWebResponse)response).StatusDescription == "OK")
                 {
-                    responseFromServer = reader.ReadToEnd();
+                    dataStream = response.GetResponseStream();
+                    using (StreamReader reader = new StreamReader(dataStream))
+                    {
+                        responseFromServer = reader.ReadToEnd();
+                    }
                 }
             }
 
-            var data = Request.FromJson(responseFromServer);
+            var data = Response.FromJson(responseFromServer);
 
             Console.ReadLine();
         }
-    }
-
-    public static class Serialize
-    {
-        public static string ToJson(this Request self) => JsonConvert.SerializeObject(self, Converter.Settings);
     }
 }
