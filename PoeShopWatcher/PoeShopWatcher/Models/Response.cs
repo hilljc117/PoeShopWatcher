@@ -13,8 +13,7 @@ namespace PoeShopWatcher.Models
         public string NextChangeId { get; set; }
 
         [JsonProperty("stashes")]
-        public Dictionary<string, Stash> Stashes;
-        //public Stash[] Stashes { get; set; }
+        public Stash[] Stashes { get; set; }
 
         public static Response FromJson(string json) => JsonConvert.DeserializeObject<Response>(json, Converter.Settings);
 

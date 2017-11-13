@@ -12,8 +12,8 @@ namespace PoeShopWatcher.Models
         [JsonProperty("accountName")]
         public object AccountName { get; set; }
 
-        //[JsonProperty("id")]
-        //public string Id { get; set; }
+        [JsonProperty("id")]
+        public string Id { get; set; }
 
         [JsonProperty("items")]
         public Item[] Items { get; set; }
