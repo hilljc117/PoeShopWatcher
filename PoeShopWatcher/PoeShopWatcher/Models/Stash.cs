@@ -25,7 +25,7 @@ namespace PoeShopWatcher.Models
         public bool Public { get; set; }
 
         [JsonProperty("stash")]
-        public object PurpleStash { get; set; }
+        public object Name { get; set; }
 
         [JsonProperty("stashType")]
         public string StashType { get; set; }

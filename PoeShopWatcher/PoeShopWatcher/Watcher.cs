@@ -24,7 +24,7 @@ namespace PoeShopWatcher
 
             URL += @"/?id={0}";
 
-            while(true)
+            while (true)
             {
                 Thread.Sleep(1000);
                 apiResponse = RetrieveStashes(String.Format(URL, data.NextChangeId));
