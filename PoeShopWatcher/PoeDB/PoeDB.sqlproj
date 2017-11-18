@@ -61,5 +61,11 @@
   <ItemGroup>
     <Build Include="Stash.sql" />
     <Build Include="Item.sql" />
+    <Build Include="AdditionalProperties.sql" />
+    <Build Include="Mods.sql" />
+    <Build Include="Socket.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="PoeDB.refactorlog" />
   </ItemGroup>
 </Project>

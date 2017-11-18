@@ -14,5 +14,11 @@
     [LockedToCharacter] VARCHAR(1) NOT NULL DEFAULT 'N', 
     [Name] VARCHAR(50) NULL, 
     [Note] VARCHAR(50) NULL, 
-    [SecDescrText] VARCHAR(50) NULL
+    [SecDescrText] VARCHAR(50) NULL, 
+    [Support] VARCHAR(1) NULL DEFAULT 'N', 
+    [TypeLine] VARCHAR(50) NULL, 
+    [Verified] VARCHAR(50) NULL, 
+    [W] FLOAT NULL, 
+    [X] FLOAT NULL, 
+    [Y] FLOAT NULL
 )

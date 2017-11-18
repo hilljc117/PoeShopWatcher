@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Socket]
+(
+	[Id] VARCHAR(50) NOT NULL PRIMARY KEY, 
+    [ItemId] VARCHAR(50) NOT NULL FOREIGN KEY REFERENCES Item(Id), 
+    [Attr] VARCHAR(50) NULL, 
+    [Group] FLOAT NULL
+)

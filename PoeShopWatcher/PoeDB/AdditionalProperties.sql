@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[AdditionalProperties]
+(
+	[Id] VARCHAR(50) NOT NULL PRIMARY KEY, 
+    [ItemID] VARCHAR(50) NOT NULL FOREIGN KEY REFERENCES Item(Id), 
+    [PropertyType] VARCHAR(50) NOT NULL DEFAULT 'ADDITIONALPROPERTIES', 
+    [DisplayMode] FLOAT NULL, 
+    [Name] VARCHAR(50) NULL, 
+    [Progress] FLOAT NULL, 
+    [Type] FLOAT NULL
+)
