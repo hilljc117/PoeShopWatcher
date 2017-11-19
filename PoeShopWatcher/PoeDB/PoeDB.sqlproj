@@ -68,4 +68,7 @@
   <ItemGroup>
     <RefactorLog Include="PoeDB.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PoeDB.publish.xml" />
+  </ItemGroup>
 </Project>
