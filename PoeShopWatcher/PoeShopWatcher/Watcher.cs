@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace PoeShopWatcher
 {
-    public static class Watcher
+    internal static class Watcher
     {
-        public static void Run()
+        internal static void Run()
         {
             string URL = "http://api.pathofexile.com/public-stash-tabs";
             Dictionary<string, Stash> stashes = new Dictionary<string, Stash>();
@@ -30,7 +30,7 @@ namespace PoeShopWatcher
                 apiResponse = RetrieveStashes(String.Format(URL, data.NextChangeId));
                 data = Response.FromJson(apiResponse);
                 stashes = UpdateStashes(stashes, data.Stashes);
-                Console.WriteLine("Stashes: " + stashes.Count);
+                DB.Insert(stashes);
             }
         }
 
