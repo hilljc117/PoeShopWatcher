@@ -20,6 +20,7 @@ namespace PoeShopWatcher
 
             string apiResponse = RetrieveStashes(URL);
             var data = Response.FromJson(apiResponse);
+            DB.InsertStashes(data.Stashes);
             stashes = UpdateStashes(stashes, data.Stashes);
 
             URL += @"/?id={0}";
@@ -30,7 +31,6 @@ namespace PoeShopWatcher
                 apiResponse = RetrieveStashes(String.Format(URL, data.NextChangeId));
                 data = Response.FromJson(apiResponse);
                 stashes = UpdateStashes(stashes, data.Stashes);
-                DB.Insert(stashes);
             }
         }
 

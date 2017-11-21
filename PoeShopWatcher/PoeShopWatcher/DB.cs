@@ -28,8 +28,17 @@ namespace PoeShopWatcher
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-
+                var maxId = conn.QuerySingle<string>("SELECT MAX(Id) FROM Stash");
+                foreach (Stash stash in stashes)
+                {
+                    FullDeleteStash(stash.Id);
+                }
             }
+        }
+
+        private static void FullDeleteStash(string stashId)
+        {
+
         }
     }
 }
